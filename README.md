@@ -1,27 +1,11 @@
 [![License: MIT](https://img.shields.io/github/license/vintasoftware/django-react-boilerplate.svg)](LICENSE.txt)
 
-# Django React Boilerplate
+# Django React Messaging
 
 ## About
-A [Django](https://www.djangoproject.com/) project boilerplate/template with lots of state of the art libraries and tools like:
-- [React](https://facebook.github.io/react/), for building interactive UIs
-- [django-js-reverse](https://github.com/ierror/django-js-reverse), for generating URLs on JS
-- [React Bootstrap](https://https://react-bootstrap.github.io/), for responsive styling
-- [Webpack](https://webpack.js.org/), for bundling static assets
-- [Celery](http://www.celeryproject.org/), for background worker tasks
-- [WhiteNoise](http://whitenoise.evans.io/en/stable/) with [brotlipy](https://github.com/python-hyper/brotlipy), for efficient static files serving
-- [prospector](https://prospector.landscape.io/en/master/) and [ESLint](https://eslint.org/) with [pre-commit](http://pre-commit.com/) for automated quality assurance (does not replace proper testing!)
+A demo app written using Django, React, and PostgreSQL featuring basic chat functionality.
 
-For continuous integration, a [CircleCI](https://circleci.com/) configuration `.circleci/config.yml` is included.
-
-Also, includes a Heroku `app.json` and a working Django `production.py` settings, enabling easy deployments with ['Deploy to Heroku' button](https://devcenter.heroku.com/articles/heroku-button). Those Heroku plugins are included in `app.json`:
-- PostgreSQL, for DB
-- Redis, for Celery
-- Sendgrid, for e-mail sending
-- Papertrail, for logs and platform errors alerts (must set them manually)
-
-This is a good starting point for modern Python/JavaScript web projects.
-
+This project was created from [Vinta Software's Django-React-Boilerplate](https://github.com/vintasoftware/django-react-boilerplate).
 ## Running
 ### Tools
 - Setup [editorconfig](http://editorconfig.org/), [prospector](https://prospector.landscape.io/en/master/) and [ESLint](http://eslint.org/) in the text editor you will use to develop.
