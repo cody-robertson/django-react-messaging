@@ -4,8 +4,9 @@ import React from 'react';
 const Conversation = ({ conversation }) => {
   return (
     <div>
-      <h2>{conversation.title}</h2>
-      <p>{conversation.startDate}</p>
+      <h2>
+        {conversation.title} ({conversation.startDate})
+      </h2>
     </div>
   );
 };

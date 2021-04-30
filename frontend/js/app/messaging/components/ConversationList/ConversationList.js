@@ -1,11 +1,13 @@
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import api from '../../../../store/api';
 import Conversation from '../Conversation';
 import ConversationForm from '../ConversationForm';
+import SearchForm from '../SearchForm';
 
-const ConversationList = () => {
+const ConversationList = ({ selectConversation }) => {
   const [conversations, setConversations] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -33,29 +35,23 @@ const ConversationList = () => {
   return (
     <div>
       <ConversationForm onSubmit={() => fetchConversations()} />
-      <form>
-        <label htmlFor="search">Search for a conversation</label>
-        <input
-          content={searchQuery}
-          name="search"
-          type="text"
-          onChange={(e) => {
-            setSearchQuery(e.target.value);
-          }}
-        />
-      </form>
-      <h2>Conversations</h2>
-      <ul>
-        {conversations.map((conversation) => {
-          return (
-            <li key={conversation.id}>
+      <SearchForm query={searchQuery} setQuery={setSearchQuery} />
+      <h2>Current Conversations</h2>
+      {conversations.map((conversation) => {
+        return (
+          <div key={conversation.id}>
+            <button type="submit" onClick={() => selectConversation(conversation)}>
               <Conversation conversation={conversation} />
-            </li>
-          );
-        })}
-      </ul>
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
+};
+
+ConversationList.propTypes = {
+  selectConversation: PropTypes.func,
 };
 
 export default ConversationList;

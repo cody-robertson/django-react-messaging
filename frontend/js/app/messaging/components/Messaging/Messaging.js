@@ -10,13 +10,15 @@ const Messaging = () => {
     return (
       <div>
         <MessageList conversation={selectedConversation} />
-        <button content="Back" type="submit" onClick={() => setSelectedConversation(null)} />
+        <button type="submit" onClick={() => setSelectedConversation(null)}>
+          Back
+        </button>
       </div>
     );
   }
   return (
     <div>
-      <ConversationList />
+      <ConversationList selectConversation={setSelectedConversation} />
     </div>
   );
 };

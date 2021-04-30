@@ -25,10 +25,12 @@ const ConversationForm = ({ onSubmit }) => {
     <div>
       {error && <div>{error}</div>}
       <form onSubmit={submit}>
-        <input content={title} name="title" onChange={(e) => setTitle(e.target.value)} />
+        <h3>Create a new conversation</h3>
+        <input content={title} name="title" required onChange={(e) => setTitle(e.target.value)} />
         <input
           content={startDate}
           name="startDate"
+          required
           type="date"
           onChange={(e) => setStartDate(e.target.value)}
         />
