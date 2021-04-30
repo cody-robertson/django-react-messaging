@@ -2,7 +2,7 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import { Provider } from 'react-redux';
 
-import Messaging from './app/messaging/components/Messaging';
+import Messaging from './app/messaging/components/MessagingRoot';
 import configureStore from './store';
 
 const store = configureStore({});
