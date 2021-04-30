@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "common",
     "users",
+    "messaging",
 ]
 
 MIDDLEWARE = [
@@ -95,7 +96,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.IsAuthenticated',
     ],
 }
 
@@ -136,3 +137,4 @@ COMMIT_SHA = config("HEROKU_SLUG_COMMIT", default="")
 # https://github.com/vintasoftware/safari-samesite-cookie-issue
 CSRF_COOKIE_SAMESITE = None
 SESSION_COOKIE_SAMESITE = None
+

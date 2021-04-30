@@ -19,7 +19,6 @@
     "@babel/polyfill": "~7.8.3",
     "@babel/preset-env": "~7.13.10",
     "@babel/preset-react": "~7.12.13",
-    "@sentry/browser": "~6.2.2",
     "@types/react": "~16.14.5",
     "autoprefixer": "~9.8.6",
     "axios": "~0.21.1",
