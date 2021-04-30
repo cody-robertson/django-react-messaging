@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+
 import api from '../../../../store/api';
 
-const ConversationForm = () => {
+const ConversationForm = ({ onSubmit }) => {
   const [title, setTitle] = useState('');
   const [startDate, setStartDate] = useState('');
   const [error, setError] = useState(null);
@@ -16,6 +18,7 @@ const ConversationForm = () => {
     } catch (err) {
       setError(err.message);
     }
+    onSubmit();
   };
 
   return (
@@ -33,6 +36,10 @@ const ConversationForm = () => {
       </form>
     </div>
   );
+};
+
+ConversationForm.propTypes = {
+  onSubmit: PropTypes.func,
 };
 
 export default ConversationForm;

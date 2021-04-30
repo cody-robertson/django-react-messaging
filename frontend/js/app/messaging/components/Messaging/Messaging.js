@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import ConversationForm from '../ConversationForm';
 import ConversationList from '../ConversationList';
 import MessageList from '../MessageList';
 
@@ -17,7 +16,6 @@ const Messaging = () => {
   }
   return (
     <div>
-      <ConversationForm />
       <ConversationList />
     </div>
   );
