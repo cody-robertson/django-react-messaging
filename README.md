@@ -8,7 +8,7 @@ A demo app written using Django, React, and PostgreSQL featuring basic chat func
 This project was created from [Vinta Software's Django-React-Boilerplate](https://github.com/vintasoftware/django-react-boilerplate).
 ## Running
 
-### Setup with Docker (Recommended):
+### Setup with Docker:
 - Open a new command line window and go to the project's directory.
 - Create the migrations for our apps:  
   `make docker_makemigrations`
@@ -25,36 +25,9 @@ This project was created from [Vinta Software's Django-React-Boilerplate](https:
 - To stop the project, run:
   `make docker_down`
 
-### If you are not using Docker:
-#### Setup and run the frontend app
-- Open a new command line window and go to the project's directory.
-- `npm install`
-- `npm run start`
-  - This is used to serve the frontend assets to be consumed by [django-webpack-loader](https://github.com/django-webpack/django-webpack-loader) and not to run the React application as usual, so don't worry if you try to check what's running on port 3000 and see an error on your browser
-
-#### Setup the backend app
-- Open a new command line window and go to the project's directory.
-- Create a new virtualenv with either [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/) or only virtualenv: `mkvirtualenv config` or `python -m venv config-venv`
-  > If you're using Python's virtualenv (the latter option), make sure to create the environment with the suggested name, otherwise it will be added to version control.
-- Make sure the virtualenv is activated `workon config` or `source config-venv/bin/activate`
-- Run `make compile_install_requirements` to install the requirements
-  > Please make sure you have already setup PostgreSQL on your environment before installing the requirements
-
-  > In case you wish to use a Conda virtual environment, please remove the line `export PIP_REQUIRE_VIRTUALENV=true; \` from `Makefile`
-
-#### Run the backend app
-- With the virtualenv enabled, go to the `backend` directory.
-- Create the migrations for `users` app: 
-  `python manage.py makemigrations`
-- Run the migrations:
-  `python manage.py migrate`
-- Run the project:
-  `python manage.py runserver`
-- Open a browser and go to `http://localhost:8000` to see the project running
-
 ## Testing
 
-### Backend tests
+### Django
 `make test` 
 
 Will run django tests using `--keepdb` and `--parallel`. You may pass a path to the desired test module in the make command. E.g.:
