@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "f3d7b6c7-4a38-440a-a8b3-5dcc02ccd485",
+		"name": "DjangoReactMessaging",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Conversations",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a93c5f7f-c625-4b61-b22d-b92b9d8549cb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/conversations/?q=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "",
+							"description": "Search Query for Conversation Title StartsWith"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Conversation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2bc3ade5-3159-40ff-8de6-92db2d605633",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"My Conversation\",\n    \"startDate\": \"2021-04-29\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/conversations/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Messages",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8d6031df-7594-4f0b-a4f2-43ac537fb62c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/conversations/:conversationId/messages/?q=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						":conversationId",
+						"messages",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "",
+							"description": "Search Query for Message Text Contains"
+						}
+					],
+					"variable": [
+						{
+							"key": "conversationId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Message",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "93ddc75c-9a1f-4374-a306-b5a7a50d3cb9",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"This is an example message for our first conversation we created.\",\n    \"timeSent\": \"2021-04-30T12:15:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/conversations/:conversationid/messages/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						":conversationid",
+						"messages",
+						""
+					],
+					"variable": [
+						{
+							"key": "conversationid",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Thoughts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a138d4b5-75c3-440f-ab68-212129e83d2f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/conversations/:conversationId/messages/:messageId/thoughts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						":conversationId",
+						"messages",
+						":messageId",
+						"thoughts",
+						""
+					],
+					"variable": [
+						{
+							"key": "conversationId",
+							"value": "1"
+						},
+						{
+							"key": "messageId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Thought",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "85ad8592-cab0-40de-8574-c8602dc70625",
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "454a0c10-00da-4465-acc5-4c12a1b8692c",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"Just a thought about this interesting message\",\n    \"timeSent\": \"2021-04-30T08:00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/conversations/:conversationId/messages/:messageId/thoughts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"conversations",
+						":conversationId",
+						"messages",
+						":messageId",
+						"thoughts",
+						""
+					],
+					"variable": [
+						{
+							"key": "conversationId",
+							"value": "1"
+						},
+						{
+							"key": "messageId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
