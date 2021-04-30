@@ -6,12 +6,6 @@ services:
     volumes:
       - .db:/var/lib/postgresql/data
 
-  broker:
-    image: "rabbitmq:alpine"
-
-  result:
-    image: "redis:alpine"
-
   frontend:
     build:
       dockerfile: frontend/Dockerfile
@@ -33,25 +27,4 @@ services:
     env_file: backend/.env
     depends_on:
       - db
-      - broker
-      - result
       - frontend
-
-  celery:
-    build:
-      dockerfile: backend/Dockerfile
-      context: .
-    command: python manage.py celery
-    volumes:
-      - ./backend/:/home/user/app/
-    env_file: backend/.env
-    depends_on:
-      - db
-      - broker
-      - result
-
-  mailhog: # service for faking a SMTP server
-    image: mailhog/mailhog
-    ports:
-      - '1025:1025' # smtp server
-      - '8025:8025' # web ui
