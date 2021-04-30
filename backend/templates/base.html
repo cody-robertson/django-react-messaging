@@ -10,14 +10,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="shortcut icon" href="#" />
-
-  <!-- Webpack rendered CSS -->
-  {% render_bundle 'main' 'css' %}
 </head>
 
 <body>
-  {% include 'includes/sentry_init.html' %}
-
   <!-- Body Content -->
   {% block body %}{% endblock %}
 

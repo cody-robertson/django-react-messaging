@@ -64,7 +64,6 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "common.context_processors.sentry_dsn",
                 "common.context_processors.commit_sha",
             ],
             "loaders": [
@@ -129,8 +128,6 @@ CELERY_RESULT_SERIALIZER = "json"
 CELERY_ACKS_LATE = True
 CELERY_TIMEZONE = TIME_ZONE
 
-# Sentry
-SENTRY_DSN = config("SENTRY_DSN", default="")
 COMMIT_SHA = config("HEROKU_SLUG_COMMIT", default="")
 
 # Fix for Safari 12 compatibility issues, please check:

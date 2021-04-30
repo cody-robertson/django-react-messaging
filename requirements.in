@@ -16,4 +16,3 @@ gunicorn
 whitenoise
 psutil
 ipython
-sentry-sdk
