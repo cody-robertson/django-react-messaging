@@ -25,7 +25,7 @@ const ReplyForm = ({ submit }) => {
           type="datetime-local"
           onChange={(e) => setSendTime(e.target.value)}
         />
-        <button type="submit">Create Conversation</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
