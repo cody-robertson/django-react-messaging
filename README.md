@@ -3,7 +3,7 @@
 # Django React Messaging
 
 ## About
-A demo app written using Django, React, and PostgreSQL featuring basic chat functionality.
+A demo app written using Django, React, and PostgreSQL featuring basic message board functionality.
 
 This project was created from [Vinta Software's Django-React-Boilerplate](https://github.com/vintasoftware/django-react-boilerplate).
 ## Running
