@@ -20,7 +20,8 @@ class MessageList(generics.ListCreateAPIView):
         conversation_id = self.kwargs['conversation_id']
         search = self.request.query_params.get('q', '')
         print("Search", search, conversation_id)
-        return Message.objects.filter(conversation_id=conversation_id, text__icontains=search).prefetch_related('thought_set')
+        conversation = get_object_or_404(Conversation, pk=conversation_id)
+        return Message.objects.filter(conversation=conversation, text__icontains=search).prefetch_related('thought_set')
 
     def perform_create(self, serializer):
         conversation_id = self.kwargs['conversation_id']
